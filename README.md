@@ -42,9 +42,9 @@ Below is the table of results from running insertion sort on random lists of var
 
 | List Size | Number of Comps | Number of Moves |
 |-----------|-----------------|-----------------|
-|           |                 |                 |
-|           |                 |                 |
-|           |                 |                 |
+|  1000     |    252299       |    252304       |
+|  2000     |    990560       |    990566       |
+|  4000     |    3990053      |    3990065      |
 
 2. Modify the code in `sort.py` to test how many comparisons and moves `insertion_sort()` makes on *almost sorted* lists of various sizes. The same guidelines as (1) apply here. Record the number of comparisons and moves for each trial below.
 
@@ -52,9 +52,9 @@ Below is the table of results from running insertion sort on almost sorted lists
 
 | List Size | Number of Comps | Number of Moves |
 |-----------|-----------------|-----------------|
-|           |                 |                 |
-|           |                 |                 |
-|           |                 |                 |
+|  1000     |   1466          |    1466         |
+|  2000     |   3043          |    3043         |
+|  4000     |   5926          |    5926         |
 
 3. Using the experimental data, calculate the big-O time complexity for `insertion_sort()`. For both types of input (random lists and almost sorted lists), show the time complexity for moves, the time complexity for comparisons, and the overall time complexity.
 
@@ -62,4 +62,20 @@ Below is the table of results from running insertion sort on almost sorted lists
     - Repeat the above process to find the big-O expression for the number of moves for random lists.
     - Combine the two big-O expressions to find the total big-O expression for random lists.
 
+**Random Lists**:
+
+When the size of the list doubles from n = 1000 --> 2000, the number of comparisons go from ~250K --> ~1M (4x). Similarly, as the size of the list doubles from n = 2000 --> 4000, the number of comparisons go from ~1M --> ~4M (4x). We can conclude from this that the comparisons are O(n<sup>2</sup>).
+
+The same pattern happens for moves, so moves are also O(n<sup>2</sup>).
+
+Therefore, the overall running time for insertion sort on random lists is O(n<sup>2</sup>).
+
 Then, repeat this analysis for almost sorted lists.
+
+**Almost Sorted Lists**
+
+When the size of the list doubles from n = 1000 --> 2000, the number of comparisons go from ~1500 --> ~3000 (2x). Similarly, as the size of the list doubles from n = 2000 --> 4000, the number of comparisons go from ~3000 --> ~6000 (2x). We can conclude from this that the comparisons are O(n).
+
+The same pattern happens for moves, so moves are also O(n).
+
+Therefore, the overall running time for insertion sort on almost sorted lists is O(n).
